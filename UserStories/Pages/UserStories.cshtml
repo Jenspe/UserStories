@@ -1,0 +1,27 @@
+﻿@page
+@model UserStories.Pages.UserStoriesModel
+@{
+}
+
+<h1>User Stories</h1>
+<a class="btn btn-outline-success" type="button" asp-page="AddUserStory">Create</a>
+
+@foreach (var userstory in @Model.UserStories)
+{
+    
+    <div class="card mb-2" style="width: 40rem;">
+        <div class="card-header p-2">
+            <h5 class="card-title">(@userstory.Id) @userstory.Title</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@userstory.Description</p>
+
+        </div>
+        <div class="card-footer">
+            <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@userstory.Id"><i class="fa fa-trash"></i></a>
+            <a class="btn" type="button" asp-page="UserStoryDetail" asp-route-id="@userstory.Id"><i class="fa fa-info-circle"></i></a>
+
+
+        </div>
+    </div>
+}
